@@ -17,27 +17,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="ChecklistItem" id="zTa-DJ-hyX">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="ChecklistItem" id="zTa-DJ-hyX">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zTa-DJ-hyX" id="ycj-dl-5Oq">
-                                    <rect key="frame" x="0.0" y="0.0" width="280" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="252" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fB6-9x-gjX">
-                                            <rect key="frame" x="16" y="12" width="264" height="21"/>
+                                            <rect key="frame" x="37" y="12" width="215" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="√" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ow1-Zs-4oT">
+                                            <rect key="frame" x="7" y="7" width="12" height="26"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="fB6-9x-gjX" firstAttribute="leading" secondItem="Ow1-Zs-4oT" secondAttribute="trailing" constant="18" id="979-oG-ZFk"/>
                                         <constraint firstAttribute="bottom" secondItem="fB6-9x-gjX" secondAttribute="bottom" constant="10.5" id="E7Q-24-rBQ"/>
-                                        <constraint firstItem="fB6-9x-gjX" firstAttribute="leading" secondItem="ycj-dl-5Oq" secondAttribute="leading" constant="16" id="URy-0t-Xef"/>
+                                        <constraint firstItem="fB6-9x-gjX" firstAttribute="leading" secondItem="ycj-dl-5Oq" secondAttribute="leading" constant="37" id="URy-0t-Xef"/>
+                                        <constraint firstItem="Ow1-Zs-4oT" firstAttribute="baseline" secondItem="fB6-9x-gjX" secondAttribute="firstBaseline" id="VzK-lA-unD"/>
                                         <constraint firstAttribute="trailing" secondItem="fB6-9x-gjX" secondAttribute="trailing" id="gnu-jN-HLL"/>
                                         <constraint firstItem="fB6-9x-gjX" firstAttribute="top" secondItem="ycj-dl-5Oq" secondAttribute="top" constant="12" id="oEP-gG-yUB"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="iRK-i5-EkY" kind="show" identifier="EditItem" trigger="accessoryAction" id="vNu-Wd-txL"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -60,7 +71,7 @@
         <!--Add Item-->
         <scene sceneID="2El-3T-reH">
             <objects>
-                <tableViewController id="iRK-i5-EkY" customClass="AddItemViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="iRK-i5-EkY" customClass="ItemDetailViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="XHz-34-dDx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -137,4 +148,7 @@
             <point key="canvasLocation" x="-288.75" y="67.605633802816897"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="vNu-Wd-txL"/>
+    </inferredMetricsTieBreakers>
 </document>
